@@ -5,8 +5,10 @@ const path = require('path');
 const ExpressError = require('./helpers/ExpressError');
 const mongoose = require('mongoose');
 const methodOverride = require('method-override');
-const campgroundRouters = require('./routes/campgrounds')
+const campgroundRouters = require('./routes/campgrounds');
+const reviewRouters = require('./routes/review');
 const ejsMate = require('ejs-mate');
+
 
 
 mongoose.connect('mongodb://localhost:27017/yelp-camp', {
@@ -32,7 +34,11 @@ app.use(methodOverride('_method'));
 
 //routes middleware
 app.use('/campgrounds', campgroundRouters);
+app.use('/campgrounds/:id/reviews', reviewRouters);
 
+app.get('/', (req, res) => {
+    res.render('home');
+})
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('page not found', 404));
