@@ -1,9 +1,10 @@
 <% layout('layouts/boilerplate') %>
 <link rel="stylesheet" href="/css/starability-basic.css">
   
-    
+
 <div class="row">
         <div class="col-6">
+            <div id='map' style='width: 400px; height: 300px;'></div>
                 <div class="card mb-3">
                     <div id="carouselExampleControls" class="carousel slide" data-bs-ride="carousel">
                         <div class="carousel-inner">
@@ -105,3 +106,10 @@
         <% } %> 
     </div>
     
+<script>
+   const accessToken = '<%-process.env.MAPBOX_TOKEN%>';
+   const campground = <%- JSON.stringify(campground) %>
+</script>  
+
+
+<script src="/js/showMap.js"></script>
