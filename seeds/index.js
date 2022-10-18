@@ -19,7 +19,7 @@ const sample = array => array[Math.floor(Math.random() * array.length)];
 
 const seedDB = async () => {
   await campground.deleteMany({});
-  for (i = 1; i < 50; i++) {
+  for (i = 1; i < 300; i++) {
     const random1000 = Math.floor(Math.random() * 1000);
     const price = Math.floor(Math.random() * 20) + 10;
     const camp = new campground({
@@ -28,20 +28,23 @@ const seedDB = async () => {
       title: `${sample(descriptors)} ${sample(places)}`,
       geometry : { 
         type: "Point", 
-        coordinates : [ 36.6880794, -3.3696827 ] 
+        coordinates : [ 
+          cities[random1000].longitude,
+          cities[random1000].latitude
+         ] 
       },
       images: [
         {
-          url: 'https://res.cloudinary.com/dd668jp9n/image/upload/v1665830287/YELPCAMP-UDEMY/v38wttjev00nzh65asi6.jpg',
-          fileName: 'YELPCAMP-UDEMY/v38wttjev00nzh65asi6'
+          url: 'https://res.cloudinary.com/dd668jp9n/image/upload/v1666075984/YELPCAMP-UDEMY/xnf6sbolgjbndcoqbgov.jpg',
+          fileName: 'YELPCAMP-UDEMY/p0scigley17wgc1b95m0'
         },
         {
-          url: 'https://res.cloudinary.com/dd668jp9n/image/upload/v1665830287/YELPCAMP-UDEMY/ahjxtuvvn0pmvu3zq4kh.jpg',
-          fileName: 'YELPCAMP-UDEMY/ahjxtuvvn0pmvu3zq4kh'
+          url: 'https://res.cloudinary.com/dd668jp9n/image/upload/v1666075984/YELPCAMP-UDEMY/xnf6sbolgjbndcoqbgov.jpg',
+          fileName: 'YELPCAMP-UDEMY/p0scigley17wgc1b95m0'
         },
         {
-          url: 'https://res.cloudinary.com/dd668jp9n/image/upload/v1665830287/YELPCAMP-UDEMY/hxnzruktttra8co1ywij.jpg',
-          fileName: 'YELPCAMP-UDEMY/hxnzruktttra8co1ywij'
+          url: 'https://res.cloudinary.com/dd668jp9n/image/upload/v1666075984/YELPCAMP-UDEMY/xnf6sbolgjbndcoqbgov.jpg',
+          fileName: 'YELPCAMP-UDEMY/p0scigley17wgc1b95m0'
         }
       ],
       description: 'Lorem ipsum dolor sit amet consectetur, adipisicing elit. Nemo iusto sequi ab! Neque vitae iure natus repellendus nam placeat quae, ullam veniam itaque, rem non, aliquid excepturi ipsa perspiciatis maiores!',
