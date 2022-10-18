@@ -5,7 +5,7 @@ if(process.env.NODE_ENV !== 'production') {
 
 const express = require('express');
 const app = express();
-const port = 8080;
+const port = process.env.PORT || 8080;
 const path = require('path');
 const ExpressError = require('./helpers/ExpressError');
 const mongoose = require('mongoose');
