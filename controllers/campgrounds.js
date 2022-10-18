@@ -24,7 +24,7 @@ module.exports.create = async (req, res, next) => {
     campground.author = req.user._id;
     await campground.save();
     console.log(campground);
-    req.flash('success', 'successfully made a new campground');
+    req.flash('success', 'successfully made a new abandoned place');
     res.redirect(`/campgrounds/${campground._id}`);
 
 }
@@ -37,7 +37,7 @@ module.exports.show = async (req, res) => {
         }
     }).populate('author');
     if (!campground) {
-        req.flash('error', 'cannot find that campground');
+        req.flash('error', 'cannot find that place');
         return res.redirect('/campgrounds');
     }
     res.render('campgrounds/show', { campground });
@@ -46,7 +46,7 @@ module.exports.show = async (req, res) => {
 module.exports.edit = async (req, res) => {
     const campground = await Campground.findById(req.params.id);
     if (!campground) {
-        req.flash('error', 'cannot find that campground');
+        req.flash('error', 'cannot find that place');
         return res.redirect('/campgrounds');
     }
     res.render('campgrounds/edit', { campground });
@@ -64,13 +64,13 @@ module.exports.update = async (req, res) => {
            await cloudinary.uploader.destroy(fileName);
         }
     }
-    req.flash('success', 'successfully updated a campground');
+    req.flash('success', 'successfully updated abandoned place');
     res.redirect(`/campgrounds/${campground._id}`);
 }
 
 module.exports.delete = async (req, res) => {
     const { id } = req.params;
     await Campground.findByIdAndDelete(id);
-    req.flash('success', 'successfully deleted a campground');
+    req.flash('success', 'successfully deleted abandoned place');
     res.redirect('/campgrounds');
 }
