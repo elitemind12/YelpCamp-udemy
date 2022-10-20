@@ -1,34 +1,43 @@
-<% layout('layouts/boilerplate') %>
-    <div class="row">
-        <h1 class="text-center">Register</h1>
-        <div class="col-6 offset-3">
-            <form action="/register" method="POST" novalidate class="needs-validation">
-                <div class="mb-3">
-                    <label class="form-label" for="username">Email</label>
-                    <input class="form-control" type="email" name="email" id="email" required>
-                    <div class="valid-feedback">
-                        look beutyful
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="username">Username</label>
-                    <input class="form-control" type="text" name="username" id="username" required>
-                    <div class="valid-feedback">
-                        look beutyful
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <label class="form-label" for="password">Password</label>
-                    <input class="form-control" type="password" name="password" id="password" required>
-                    <div class="valid-feedback">
-                        look beutyful
-                    </div>
-                </div>
-                <div class="mb-3">
-                    <button class="btn btn-success btn-block">Register</button>
-                </div>
-            </form>
-        </div>
-    </div>
 
+    <% layout('layouts/boilerplate')%>
+    <div class="container d-flex justify-content-center align-items-center mt-3 mb-5">
+        <div class="row">
+            <div class="col-md-6 offset-md-3 col-xl-4 offset-xl-4">
+                <div class="card shadow">
+                    <img src="https://res.cloudinary.com/dd668jp9n/image/upload/v1665821029/cld-sample.jpg"
+                        alt="" class="card-img-top" />
+                    <div class="card-body">
+                        <h5 class="card-title">Register</h5>
+                        <form action="/register" method="POST" novalidate class="needs-validation">
+                            <div class="mb-3">
+                                <label class="form-label" for="username">Email Address</label>
+                                <input class="form-control" type="email" name="email" id="email" placeholder="please enter your email" required>
+                                <div class="valid-feedback">
+                                    look beutyful
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="username">Username</label>
+                                <input class="form-control" type="text" name="username" id="username" placeholder="please enter your username" required>
+                                <div class="valid-feedback">
+                                    look beutyful
+                                </div>
+                            </div>
+                            <div class="mb-3">
+                                <label class="form-label" for="password">Password</label>
+                                <input class="form-control" type="password" name="password" id="password" placeholder="please enter your password" required>
+                                <div class="valid-feedback">
+                                    look beutyful
+                                </div>
+                            </div>
+                            <div class="d-grid mb-3">
+                                <button class="btn btn-success btn-block">Register</button>
+                            </div>
+                        </form>
+    
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>    
     
