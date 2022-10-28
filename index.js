@@ -8,7 +8,8 @@ const app = express();
 const port = process.env.PORT || 8080;
 const path = require('path');
 const ExpressError = require('./helpers/ExpressError');
-const mongoose = require('mongoose');
+const db = require("./db");
+db.connect();
 const methodOverride = require('method-override');
 const campgroundRouters = require('./routes/campgrounds');
 const reviewRouters = require('./routes/review');
@@ -17,23 +18,16 @@ const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+// require("./globalConfig")(passport);
 const passportLocal = require('passport-local');
 const User = require('./models/user');
 const mongoSanitize = require('express-mongo-sanitize');
 const MongoStore = require('connect-mongo');
+const jwt = require("jsonwebtoken");
 // const dbUrl = process.env.DB_URL;
 const dbUrl = process.env.DB_URL || 'mongodb://localhost:27017/yelp-camp';
 
-mongoose.connect(dbUrl, {
-    useNewUrlParser: true,
-    useUnifiedTopology: true
-});
 
-const db = mongoose.connection;
-db.on('error', console.error.bind(console, 'connection error'));
-db.once('open', () => {
-    console.log('database connected');
-})
 
 app.engine('ejs', ejsMate);
 app.set('view engine', 'ejs');
