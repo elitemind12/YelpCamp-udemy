@@ -18,6 +18,9 @@ const ejsMate = require('ejs-mate');
 const session = require('express-session');
 const flash = require('connect-flash');
 const passport = require('passport');
+const dotenv = require('dotenv');
+
+dotenv.config();
 // require("./globalConfig")(passport);
 const passportLocal = require('passport-local');
 const User = require('./models/user');
